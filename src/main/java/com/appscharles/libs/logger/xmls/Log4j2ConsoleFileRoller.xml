@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${sys:log4j2ConsoleFileRoller.consolePatternLayout:-%d [%t] %-5p %c %m%n}"/>
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="${sys:log4j2ConsoleFileRoller.logsDir:-/logs}/logs.log" filePattern="${sys:log4j2ConsoleFileRoller.logsDir:-/logs}/logs-%d{dd-MMM-yyyy}-%i.log">
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy fileIndex="max" max="10"/>
+            <PatternLayout pattern="${sys:log4j2ConsoleFileRoller.rollingFilePatternLayout:-%d [%t] %-5p %c %m%n}"/>
+        </RollingFile>
+
+        <Async name="ASYNC">
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="CONSOLE"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Root level="${sys:log4j2ConsoleFileRoller.rootLevel:-error}">
+            <AppenderRef ref="ASYNC"/>
+        </Root>
+    </Loggers>
+</Configuration>
