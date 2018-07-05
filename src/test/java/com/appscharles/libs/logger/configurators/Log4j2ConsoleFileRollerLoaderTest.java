@@ -33,12 +33,13 @@ public class Log4j2ConsoleFileRollerLoaderTest {
         LoggerConfigurator.config(new Log4j2ConsoleFileRoller(Level.DEBUG).setLogsDir(logsDir));
 
         Logger logger = LogManager.getLogger(Log4j2ConsoleFileRollerLoaderTest.class);
-        logger.debug("Error");
+        logger.error("Error");
 
         File file = new File(logsDir, "logs.log");
         Assert.assertTrue(file.exists());
         Thread.sleep(2000);
         Assert.assertTrue(FileReader.read(file).contains("Error"));
+        System.out.println(FileReader.read(file));
 
     }
 }

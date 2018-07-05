@@ -2,15 +2,12 @@
 <Configuration status="info">
     <Appenders>
         <Console name="CONSOLE" target="SYSTEM_OUT">
-            <PatternLayout pattern="${sys:log4j2Console.consolePatternLayout:-%d [%t] %-5p %c %m%n}"/>
+            <PatternLayout pattern="${sys:log4j2Console.consolePatternLayout:-%-5p %d [%t] %l %m%n}"/>
         </Console>
-        <Async name="ASYNC">
-            <AppenderRef ref="CONSOLE"/>
-        </Async>
     </Appenders>
     <Loggers>
         <Root level="${sys:log4j2Console.rootLevel:-error}">
-            <AppenderRef ref="ASYNC"/>
+            <AppenderRef ref="CONSOLE"/>
         </Root>
     </Loggers>
 </Configuration>

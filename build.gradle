@@ -5,11 +5,8 @@ plugins {
 }
 
 group 'com.appscharles.libs'
-<<<<<<< HEAD
-version '1.0.0.0-dev17'
-=======
-version '1.0.0.0-dev12'
->>>>>>> origin/dev
+
+version '1.0.0.0-dev18'
 
 sourceCompatibility = 1.8
 
