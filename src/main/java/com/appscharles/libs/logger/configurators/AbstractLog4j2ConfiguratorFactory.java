@@ -33,7 +33,7 @@ public abstract class AbstractLog4j2ConfiguratorFactory implements ILoggerConfig
         this.levelLoggers = new HashMap<>();
     }
 
-    public <T extends AbstractLog4j2ConfiguratorFactory> T setLevel(String loggerName, Level level) {
+    public <T> T setLevel(String loggerName, Level level) {
         this.levelLoggers.put(loggerName, level);
         return (T) this;
     }

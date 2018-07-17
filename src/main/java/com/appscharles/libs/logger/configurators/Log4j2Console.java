@@ -25,7 +25,7 @@ public class Log4j2Console extends AbstractLog4j2ConfiguratorFactory {
     @Override
     public void config() {
         System.setProperty("log4j2.loggerContextFactory", "org.apache.logging.log4j.core.impl.Log4jContextFactory");
-        System.setProperty("log4j2ConsoleFileRoller.rootLevel", this.rootLevel.name());
+        System.setProperty("log4j2Console.rootLevel", this.rootLevel.name());
         Configurator.initialize(this.name, "classpath:com/appscharles/libs/logger/xmls/Log4j2Console.xml");
         this.levelLoggers.forEach((loggerName, level)->{
             Configurator.setLevel(loggerName, level);
