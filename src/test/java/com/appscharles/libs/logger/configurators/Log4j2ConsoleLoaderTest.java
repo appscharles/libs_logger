@@ -4,7 +4,7 @@ import com.appscharles.libs.logger.services.LoggerConfigurator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -18,6 +18,7 @@ import java.io.IOException;
  * @author Karol Golec karol.itgolo@gmail.com
  */
 public class Log4j2ConsoleLoaderTest {
+
     @Test
     public void shouldDisplayErrorInConsole() throws IOException, InterruptedException {
 

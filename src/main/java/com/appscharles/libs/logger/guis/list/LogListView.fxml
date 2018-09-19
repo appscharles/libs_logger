@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="table" focusTraversable="false" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+         <placeholder>
+            <Label text="%view.table.placeholder.no_content_in_table" />
+         </placeholder>
+         <columns>
+            <TableColumn fx:id="columnLevel" minWidth="120.0" prefWidth="120.0" text="%view.table.column.level" />
+            <TableColumn fx:id="columnCreatedAt" minWidth="170.0" prefWidth="170.0" text="%view.table.column.created_at" />
+            <TableColumn fx:id="columnSection" maxWidth="500.0" minWidth="230.0" prefWidth="230.0" text="%view.table.column.section" />
+            <TableColumn fx:id="columnMessage" maxWidth="1.7976931348623157E308" minWidth="500.0" prefWidth="-1.0" text="%view.table.column.message" />
+            <TableColumn fx:id="columnException" maxWidth="500.0" minWidth="100.0" prefWidth="100.0" text="%view.table.column.details" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox alignment="TOP_RIGHT" spacing="7.0">
+         <children>
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#cancel" text="%view.button.cancel" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#refresh" text="%view.button.refresh" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#remove" text="%view.button.remove" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
