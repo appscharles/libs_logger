@@ -2,6 +2,7 @@ package com.appscharles.libs.logger.services;
 
 import com.appscharles.libs.databaser.exceptions.DatabaserException;
 import com.appscharles.libs.databaser.operators.DBOperator;
+import com.appscharles.libs.dialoger.converters.ExceptionConverter;
 import com.appscharles.libs.fxer.exceptions.ThrowingConsumer;
 import com.appscharles.libs.logger.models.Log;
 import com.appscharles.libs.logger.models.enums.LevelLog;
@@ -28,7 +29,7 @@ public class LogService {
         } catch (Exception e) {
             logger.error(e, e);
             try {
-                DBOperator.save(new Log(logMessage, LevelLog.ERROR, logSection));
+                DBOperator.save(new Log(logMessage, LevelLog.ERROR, logSection, ExceptionConverter.toString(e)));
             } catch (DatabaserException e1) {
                 logger.error(e1, e1);
             }
