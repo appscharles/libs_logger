@@ -21,7 +21,7 @@ public class LogService {
      * @param aClassLogger     the a class logger
      * @param throwingConsumer the throwing consumer
      */
-    public static void addErrorLog(String logMessage, String logSection, Class aClassLogger, ThrowingConsumer<Exception> throwingConsumer){
+    public static void withErrorLog(String logMessage, String logSection, Class aClassLogger, ThrowingConsumer<Exception> throwingConsumer){
         final Logger logger = LogManager.getLogger(aClassLogger);
         try {
             throwingConsumer.accept();
