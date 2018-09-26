@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -48,7 +49,7 @@ public class _10_TableViewControllerExtend extends _6_ResourceIconControllerExte
      * The Column message.
      */
     @FXML
-    protected TableColumn<String, Log> columnMessage;
+    protected TableColumn<Log, String> columnMessage;
 
     @FXML
     protected TableColumn<Log, Node> columnException;
@@ -65,6 +66,7 @@ public class _10_TableViewControllerExtend extends _6_ResourceIconControllerExte
         this.addOnInitializeWithSneakyThrow(() -> {
             this.logs = FXCollections.observableArrayList();
             this.table.setItems(this.logs);
+            this.table.setEditable(true);
         });
 
         this.addOnInitializeWithSneakyThrow(() -> {
@@ -78,6 +80,7 @@ public class _10_TableViewControllerExtend extends _6_ResourceIconControllerExte
                 return new Label(text);
             }));
             this.columnMessage.setCellValueFactory(new PropertyValueFactory<>("message"));
+            this.columnMessage.setCellFactory(TextFieldTableCell.forTableColumn());
             this.columnSection.setCellFactory(new UniversalTableCell<Log, Node>().forTableColumn((Node node, Log log) -> {
                String text;
                if (this.sectionsResourceBundle != null && this.sectionsResourceBundle.containsKey("view.table.label.section_" + log.getSection().toLowerCase())){
